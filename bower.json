@@ -1,0 +1,36 @@
+{
+  "name": "ex10-ballsack",
+  "version": "0.0.0",
+  "dependencies": {
+
+    "jquery": "latest",
+    "bootstrap": "^3.2.0",
+    "angular": "./app/scripts/vendor/angular/angular_core",
+    "angular-bootstrap": "0.14.2",
+    "angular-seo": "latest",
+    "angular-simple-logger": "latest",
+    "angularjs-geolocation": "0.1.1",
+    "angular-ui-router": "0.2.15",
+    "angular-google-maps": "latest",
+    "lodash": "latest",
+    "ocLazyLoad": "latest"
+
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0"
+  },
+  "appPath": "app",
+  "moduleName": "ratCatchr",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "*"
+  }
+}

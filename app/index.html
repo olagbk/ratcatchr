@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <base href="/">
+</head>
+
+<body ng-app="ratCatchr">
+<div class="container">
+    <div class="header">
+        <img ng-src="/images/logo.jpg" />
+        <h1 class="header-heading"></h1>
+    </div>
+    <div class="nav-bar">
+        <ul class="nav">
+            <li><a ui-sref="home">Home</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="main">
+
+            <h1>Find expert rat catchers in your area</h1>
+            <hr>
+
+            <div ui-view="mainContent"></div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; Pastafarian Rat-Catchers Association, 2015
+    </div>
+</div>
+
+<!--javascript assets-->
+<script src="dist/vendor.js"></script>
+<script src="dist/app.js"></script>
+
+<!--style assets-->
+<script src="dist/style_app.js"></script>
+
+</body>
+</html>

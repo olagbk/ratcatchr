@@ -1,0 +1,29 @@
+<div class="details-page">
+    <div class="details">
+        <h3 class="name">{{place.info.name}}</h3>
+        <ul class="details-list">
+            <li class="phone"> <span class="glyphicon glyphicon-earphone"></span>
+                {{place.info.phone}}</li>
+            <li class="address"> <span class="glyphicon glyphicon-home"></span>
+                {{place.info.addressLine1}} <br> {{place.info.addressLine2}} </li>
+            <li class="hours"> <h4> <span class="glyphicon glyphicon-time"></span>
+                Opening hours</h4></li>
+
+                <table>
+                    <tr ng-repeat="(day, hours) in place.info.hours">
+                        <td> {{day}} </td> <td> {{ hours }} </td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>
+    <div class="minimap">
+
+        <ui-gmap-google-map center="map.center" zoom="map.zoom">
+
+            <ui-gmap-marker coords="place.coords" idkey="place.id"></ui-gmap-marker>
+
+        </ui-gmap-google-map>
+
+    </div>
+</div>

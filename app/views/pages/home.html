@@ -1,0 +1,20 @@
+<div class="main-map" ng-controller="mapController">
+
+    <script type="text/ng-template" id="searchbox.tpl.html">
+        <input type="text" placeholder="Find address...">
+    </script>
+
+    <ui-gmap-google-map center="map.center" zoom="map.zoom">
+
+        <ui-gmap-markers models="places" coords="'coords'" icon="'icon'" click="onClick">
+
+            <ui-gmap-windows show="show" templateUrl="'url'" templateParameter="'info'">
+            </ui-gmap-windows>
+
+        </ui-gmap-markers>
+
+        <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+
+    </ui-gmap-google-map>
+
+</div>
