@@ -1,0 +1,8 @@
+{
+  "name": "angular",
+  "main": "./index.js",
+  "version": "0.0.0",
+  "_source": "/home/reis/Code Projects/ex10/front/app/scripts/vendor/angular/angular_core",
+  "_target": "*",
+  "_originalSource": "./app/scripts/vendor/angular/angular_core"
+}
