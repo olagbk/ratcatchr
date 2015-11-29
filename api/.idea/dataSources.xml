@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="180676223">
+    <data-source source="LOCAL" name="Rails api: development" uuid="4f54b251-0164-414b-a643-0a9b2bbc5d9f">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/ratcatchr</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfc5dfc6dfcb</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

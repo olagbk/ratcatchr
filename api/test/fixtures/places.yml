@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  address_line_1: MyString
+  address_line_2: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  name: MyString
+  phone: MyString
+  address_line_1: MyString
+  address_line_2: MyString
+  latitude: 1.5
+  longitude: 1.5

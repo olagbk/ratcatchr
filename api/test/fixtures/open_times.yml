@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weekday: MyString
+  open_time: 2015-11-30 00:14:34
+  close_time: 2015-11-30 00:14:34
+  place_id: 1
+
+two:
+  weekday: MyString
+  open_time: 2015-11-30 00:14:34
+  close_time: 2015-11-30 00:14:34
+  place_id: 1
