@@ -2,40 +2,51 @@
  * Created by reis on 11/29/15.
  */
 module.exports = [
+    "$rootScope",
     "$scope",
+    '$http',
+    '$stateParams',
     "uiGmapGoogleMapApi",
-    function($scope, uiGmapGoogleMapApi) {
+    function($rootScope, $scope, $http, $stateParams, uiGmapGoogleMapApi) {
 
-        $scope.place = {
+        $http.get('/api/places/' + $stateParams.id + '.json')
+            .success(function(data){
+                var openOn = {};
 
-                id: 1,
-                coords: {
-                    latitude: 41.416105,
-                    longitude: 2.159556
-                },
-                info: {
-                    name: "Cazadores de ratas unidos",
-                    phone: "932 021 547",
-                    hours: {
-                        Monday: "10.00 - 17.00",
-                        Tuesday: "10.00 - 17.00",
-                        Wednesday: "10.00 - 17.00",
-                        Thursday: "10.00 - 17.00",
-                        Friday: "10.00 - 17.00",
-                        Saturday: "10.00 - 13.00",
-                        Sunday: "closed"
+                angular.forEach(data.open_times, function(day, index) {
+
+                   openOn[day.weekday] = {
+
+                       from: $rootScope.formatTime(day.open_time),
+                       to: $rootScope.formatTime(day.close_time)
+                   }
+                });
+                $scope.place = {
+
+                    id: data.id,
+                    coords: {
+                        latitude: data.latitude,
+                        longitude: data.longitude
                     },
-                    addressLine1: "Calle de Tu Mamá 15",
-                    addressLine2: "08024 Barcelona"
+                    info: {
+                        name: data.name,
+                        phone: data.phone,
+                        addressLine1: data.address_line_1,
+                        addressLine2: data.address_line_2,
+                        hours: {
+                            Monday: (openOn.Monday)? openOn.Monday.from + " - " + openOn.Monday.to : "closed",
+                            Tuesday: (openOn.Tuesday)? openOn.Tuesday.from + " - " + openOn.Tuesday.to : "closed",
+                            Wednesday: (openOn.Wednesday)? openOn.Wednesday.from + " - " + openOn.Wednesday.to : "closed",
+                            Thursday: (openOn.Thursday)? openOn.Thursday.from + " - " + openOn.Thursday.to : "closed",
+                            Friday: (openOn.Friday)? openOn.Friday.from + " - " + openOn.Friday.to : "closed",
+                            Saturday: (openOn.Saturday)? openOn.Saturday.from + " - " + openOn.Saturday.to : "closed",
+                            Sunday: (openOn.Sunday)? openOn.Sunday.from + " - " + openOn.Sunday.to : "closed"
+                        }
+                    }
+                };
+                $scope.map = { center: { latitude: $scope.place.coords.latitude, longitude: $scope.place.coords.longitude }, zoom: 15};
+            });
 
-                },
-                url: '/views/directives/placeInfo.html'
-            };
 
-        $scope.onClick = function(marker, eventName, model) {
-            model.show = !model.show;
-        };
-
-        $scope.map = { center: { latitude: $scope.place.coords.latitude, longitude: $scope.place.coords.longitude }, zoom: 15};
 
     }];

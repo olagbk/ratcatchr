@@ -4,14 +4,7 @@
     <span class="glyphicon glyphicon-earphone"></span>
     {{parameter.phone}}<br><br>
 
-    <a ui-sref="details">Show details</a>
+    <a ui-sref="details({id: {{parameter.id}}})">Show details</a>
 
-    <!--<h4>Opening hours</h4>
-
-    <table>
-        <tr ng-repeat="(day, hours) in parameter.hours">
-            <td> {{day}} </td> <td> {{ hours }} </td>
-        </tr>
-    </table>-->
 </div>
 

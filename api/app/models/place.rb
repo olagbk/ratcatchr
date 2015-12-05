@@ -1,3 +1,3 @@
 class Place < ActiveRecord::Base
-  has_one :open_time
+  has_many :open_times
 end

@@ -3,16 +3,40 @@
  */
 module.exports = [
     "$scope",
+    "$http",
     "uiGmapGoogleMapApi",
     "geolocation",
-    function($scope, uiGmapGoogleMapApi, geolocation) {
+    function($scope, $http, uiGmapGoogleMapApi, geolocation) {
+        $scope.places = [];
 
-    // uiGmapGoogleMapApi is a promise.
-    // The "then" callback function provides the google.maps object.
+        $http.get("api/places.json")
+            .success(function(data) {
+
+                angular.forEach(data, function(place, index) {
+
+                    $scope.places.push({
+
+                        id: place.id,
+                        coords: {
+                            latitude: place.latitude,
+                            longitude: place.longitude
+                        },
+                        info: {
+                            id: place.id,
+                            name: place.name,
+                            phone: place.phone,
+                            addressLine1: place.address_line_1,
+                            addressLine2: place.address_line_2
+                        },
+                        url: '/views/directives/placeInfo.html'
+                    })
+                })
+
+            });
 
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 15};
 
-    $scope.places = [
+    /*$scope.places = [
         {
             id: 1,
             coords: {
@@ -60,7 +84,7 @@ module.exports = [
             url: '/views/directives/placeInfo.html'
 
         }
-    ];
+    ];*/
     $scope.onClick = function(marker, eventName, model) {
         console.log("Clicked!");
         model.show = !model.show;

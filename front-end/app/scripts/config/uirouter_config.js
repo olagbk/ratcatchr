@@ -32,11 +32,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     });
 
     $stateProvider.state('details', {
-        url: '/details',
+        url: "/places/:id",
 
         views: {
             mainContent: {
-                controller: 'detailsController', // This view will use mapController loaded below in the resolve
+                controller: 'detailsController',
                 templateUrl: '/views/pages/details.html'
             }
         },

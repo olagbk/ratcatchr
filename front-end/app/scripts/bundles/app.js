@@ -31,6 +31,7 @@ var app = angular.module('ratCatchr', [
 
 require("../config/gmap_config.js");
 require("../config/uirouter_config.js");
+require("../config/run_config.js");
 
 
 
